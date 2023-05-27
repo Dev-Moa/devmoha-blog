@@ -6,15 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
-
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    {% comment %} <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    {% comment %} <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@400;500;600;700&display=swap" rel="stylesheet">     {% endcomment %}
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>   
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> {% endcomment %}
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %} ">
     <style>
@@ -34,9 +32,7 @@
         <div style="margin-top:-50px; margin-bottom:100px" class=" ">
             
             {% block content %}
-                <span id="spinner"  class="hx-indicator">
-                    <i class="fa fa-spinner fa-spin"></i>
-                </span>
+                
             {% endblock content %}  
         </div>          
         <div style="margin-top:100px">
