@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{tag}}
+{% endblock title %}
+
+{% block content %}
+
+<div style="background: #C5CAE9;" class="container p-5">
+    {% include 'core/include/nav.html' %}
+</div>
+
+<div>
+    {% if tag %}
+    <h1 class="text-center"> {{tag.captions}} </h1>
+    {% endif %}
+</div>
+{% include 'core/include/latest-post.html'  %}
+
+
+{% endblock content %}

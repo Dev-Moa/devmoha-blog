@@ -1,0 +1,33 @@
+<main class="container">
+    <ul class="row">
+
+            {%for post in posts %}
+            {% if post %}
+            <li  
+                role ="button"
+                hx-get="{{post.get_absolute_url}}"
+                hx-push-url="true"
+                hx-target="body"
+                hx-swap="outerHtml"
+                class="text-primary col-md-6 list-unstyled shadow-sm p-4 rounded"> 
+                {{post.title}}
+                <p style="color:black"> {{post.excerpt}} </p>
+                <button 
+                    role ="button"
+                    hx-get="{{post.get_absolute_url}}"
+                    hx-push-url="true"
+                    hx-target="body"
+                    hx-swap="outerHtml"
+                    style="color:#3F51B5" 
+                    class="float-end btn btn-primary text-white text-decoration-none ">
+                    Read More
+                </button>
+            </li>
+            {% else %}
+                <P>No post available on this page</P>
+            {% endif %}
+            
+        {% endfor %}
+    </ul>
+
+</main>

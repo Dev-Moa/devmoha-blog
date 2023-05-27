@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%load crispy_forms_tags%}
+{% block title %}
+Login
+{% endblock title %}
+
+{% block content %}
+<div style="background: #C5CAE9;" class="container p-5">
+    {% include 'core/include/nav.html' %}
+</div>
+
+<div style="margin-top:150px; margin-bottom:150px" class="container">
+    <form 
+    hx-post="{% url 'login' %}"
+    hx-target="body"
+    hx-swap="outerHtml"
+>
+    {% csrf_token %}
+    <h3 class="mb-5 text-center">Login </h3>
+    {{ form|crispy }}       
+    <button class="btn btn-lg btn-primary float-end">Login</button>
+</form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+index
+{% endblock title %}
+
+
+
+{% block content %}
+{% comment %} Top section {% endcomment %}
+
+<div style="background: #C5CAE9; " class="container p-5 rounded-5">
+    {% include 'core/include/nav.html' %}
+    {% include 'core/include/hero.html' %}
+</div>
+{% comment %} Middle Section {% endcomment %}
+<h1 class="text-center mt-3">Latest Post</h1>
+{% include 'core/include/latest-post.html'  %}
+</div>
+
+{% endblock content %}

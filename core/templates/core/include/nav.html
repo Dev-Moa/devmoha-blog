@@ -1,0 +1,104 @@
+
+<nav style="background: #C5CAE9; " class="my-5 navbar navbar-expand-lg navbar-dark ">
+    <div class="container ">
+      <h1 
+        class="me-5"
+        role="button"
+        hx-push-url="true"
+        hx-get="{% url 'home' %}"
+        hx-target="body"
+        hx-swap="outerHtml"> Dev Mo
+     </h1>
+      <button class="btn btn-secondary navbar-toggler"  data-bs-toggle="collapse" 
+      data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class=" navbar-toggler-icon"></span>
+      </button>
+      <div style="margin-right:200px" class="collapse navbar-collapse " id="navbarColor01">
+        <ul  class=" navbar-nav mb-2 ms-auto ">          
+          <li
+            class="nav-item"
+            role="button"
+            hx-push-url="true"
+            hx-get="{% url 'posts' %}"
+            hx-target="body"
+            hx-swap="outerHtml">
+            <a style="color:black" class=" nav-link active">All Posts
+              <span class="visually-hidden">(current)</span>
+            </a>
+           
+        </li>
+        {% if user.is_authenticated %}
+        <li
+            class="nav-item"
+            role ="button"
+            hx-push-url="true"
+            hx-get="{% url 'favorites' %}"
+            hx-target="body"
+            hx-swap="outerHtml">
+            <a style="color:black" class="text-black nav-link">Favorites</a>
+        </li>
+        {% endif %}
+        </ul>
+        
+      </div>
+    </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} <div  class="row d-flex justify-content-between align-items-center my-5">
+    
+</div> {% endcomment %}
+
+
+
+
+{% comment %} 
+    <ul class="list-unstyled d-flex justify-content-between align-items-center gap-5">
+       
+       
+    </ul> {% endcomment %}

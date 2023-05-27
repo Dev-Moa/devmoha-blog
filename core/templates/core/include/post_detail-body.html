@@ -1,0 +1,32 @@
+<section class="container py-5">
+    <div class="d-flex align-items-center w-full ">
+    
+        {% comment %} <div>
+        {% if user.is_authenticated %}
+        <form action="{% url 'favorites' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" value="{{post.id}}" name="post_id">
+            {% if is_stored %}
+                <a href="{% url 'remove-favorites' post.id %}"  class="btn btn-danger mx-3">Remove Favorites</a>
+            {% else %}
+            <button type="Submit" class="btn btn-primary mx-3">Add To Favorites</button>
+            {% endif %}
+            
+            </form>
+        {% endif %}
+        </div> {% endcomment %}
+    </div>
+    <p> {{post.excerpt}} </p>
+    <p> {{post.content}} </p>
+    <p
+        
+        role ="button"
+        hx-get="{{post.author.get_absolute_url}}"
+        hx-push-url="true"
+        hx-target="body"
+        hx-swap="outerHtml">
+        Written By   
+        <span class = "text-primary">{{post.author}}</span>
+    </p>
+      
+</section> 

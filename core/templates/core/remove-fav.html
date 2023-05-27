@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Remove Fav
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    {% include 'core/include/nav.html' %}
+    <p>Are you sure you want remove this from favorites</p>
+    <form 
+        hx-post="{% url 'remove-favorites' post.id %}"
+        hx-push-url="true"
+        hx-target="body"
+        hx-swap="outerHtml">
+        {% csrf_token %}
+        <button class="btn btn-primary ">Yes</button>
+        <a 
+        hx-post="{% url 'favorites' %}"
+        hx-push-url="true"
+        hx-target="body"
+        hx-swap="outerHtml"
+        class="btn btn-secondary" 
+        href="{% url 'favorites' %}">No
+        </a>
+    </form>
+</div>
+{% endblock content %}

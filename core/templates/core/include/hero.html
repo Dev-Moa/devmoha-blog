@@ -1,0 +1,57 @@
+{% load static %}
+<div class="container-fluid">
+    <div class="row">
+    <div class="col">
+        <div>
+            <h2>Mastering Web Development</h2>
+            <p>
+                Join me on a journey of growth and discovery
+                as I share my personal tips and tutorials on full-stack web development
+            </p>
+            <div class="mt-sm-5">
+                {% if user.is_authenticated %}
+                <a 
+                    role ="button"
+                    hx-get="{% url 'posts' %}"
+                    hx-push-url="true"
+                    hx-target="body"
+                    hx-swap="outerHtml" 
+                    class="btn btn-primary mb-4">
+                    All posts
+                </a>
+                <a 
+                role ="button"
+                hx-push-url="true"
+                hx-get="{% url 'logout' %}"
+                hx-target="body"
+                hx-swap="outerHtml"
+                class="btn btn-secondary mb-4">Logout
+                </a>
+        
+                {% else %}
+                <a 
+                    role="button"
+                    hx-get="{% url 'signup' %}"
+                    hx-push-url="true"
+                    hx-target="body"
+                    hx-swap="outerHtml"
+                    class="btn btn-primary mb-4">Sign Up
+                </a>
+                <a 
+                    role="button"
+                    hx-push-url="true"
+                    hx-get="{% url 'login' %}"
+                    hx-target="body"
+                    hx-swap="outerHtml"
+                    class="btn btn-secondary mb-4">Login
+                </a>
+                {% endif %}
+           </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-12">
+       <img class="w-100" src="{% static 'img/code.png' %}" alt="">
+    </div>
+</div>
+</div>

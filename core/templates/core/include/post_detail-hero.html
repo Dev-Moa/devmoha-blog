@@ -1,0 +1,60 @@
+<div style="background: #C5CAE9;" class="container p-5">
+    
+    {% include 'core/include/nav.html' %}
+   
+    <div class="row justify-content-round align-items-center">
+        <div class="col-lg-6">
+            <h3> {{post.title}} </h3>
+            <p> {{post.excerpt}} </p>
+            <div class="d-flex">
+                <div>
+                    {% if tags %}
+                    {% for tag in tags %}
+                        <p 
+                            role ="button"
+                            hx-get="{{tag.get_absolute_url}}"
+                            hx-push-url="true"
+                            hx-target="body"
+                            hx-swap="outerHtml"
+                            class="btn btn-secondary text-center rounded-3 text-white " >{{tag.captions}} 
+                        </p>
+                            {% endfor %}
+                    {% else %}
+                            <p>no tags</p>
+                    {% endif %} 
+                </div>
+                <div>
+                    {% if user.is_authenticated %}
+                    <form 
+                        hx-post="{% url 'favorites' %}"
+                        hx-push-url="true"
+                        hx-target="body"
+                        hx-swap="outerHtml">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{post.id}}" name="post_id">
+                        {% if is_stored %}
+                            <a 
+                            hx-post="{% url 'remove-favorites' post.id %}"
+                            hx-push-url="true"
+                            hx-target="body"
+                            hx-swap="outerHtml"
+                            class="btn btn-danger mx-3">Remove Favorites</a>
+                        {% else %}
+                        <button type="Submit" class="btn btn-primary mx-3">Add To Favorites</button>
+                        {% endif %}
+                        
+                        </form>
+                    {% endif %}
+                    </div>
+            </div>
+            
+        </div>
+        <div class="col">
+            {% if post.image %} 
+                <img class="float-lg-end w-75 shadow rounded my-3 " src="{{post.image.url}}  " alt="JPG">
+            {% else %}
+                <img src="" alt="No image Found">
+            {% endif %} 
+        </div>
+    </div>
+</div>
