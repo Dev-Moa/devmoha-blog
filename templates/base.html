@@ -17,12 +17,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %} ">
-
+    <style>
+        .htmx-indicator{
+            opacity:0;
+            transition: opacity 500ms ease-in;
+        }
+        .htmx-request .htmx-indicator{
+            opacity:1
+        }
+        .htmx-request.htmx-indicator{
+            opacity:1
+        }
+    </style>
 </head>
 <body style=" font-family: 'Figtree', sans-serif;">
         <div style="margin-top:-50px; margin-bottom:100px" class=" ">
             
-            {% block content %}{% endblock content %}  
+            {% block content %}
+                <span id="spinner"  class="hx-indicator">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </span>
+            {% endblock content %}  
         </div>          
         <div style="margin-top:100px">
             {% include 'footer.html' %}

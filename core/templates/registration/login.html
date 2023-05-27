@@ -13,12 +13,13 @@ Login
     <form 
     hx-post="{% url 'login' %}"
     hx-target="body"
-    hx-swap="outerHtml"
->
+    hx-indicator="#spinner"
+    hx-swap="outerHtml">
     {% csrf_token %}
     <h3 class="mb-5 text-center">Login </h3>
     {{ form|crispy }}       
     <button class="btn btn-lg btn-primary float-end">Login</button>
+    
 </form>
 </div>
 
